@@ -90,3 +90,90 @@
 .el-dropdown .el-dropdown-link {
   color: var(--el-color-primary) !important;
 }
+
+// 紧凑行表格
+.dp-table {
+  font-size: 14px;
+
+  .el-table__cell {
+    padding: 4px 2px !important;
+    font-size: 14px !important;
+  }
+  .cell {
+    padding: 0 2px !important;
+    .el-link {
+      font-size: 14px !important;
+    }
+  }
+}
+
+.el-form {
+  .el-form-item {
+    --font-size: 14px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+
+    .el-form-item__label-wrap {
+      margin-left: 5px;
+    }
+  }
+  .el-form-item__label {
+    padding-right: 5px;
+  }
+  .el-checkbox--large {
+    height: 24px;
+  }
+  .el-form-item__error {
+    position: relative;
+    top: 0;
+    margin-top: -1px;
+    transform-origin: left bottom;
+    transform: scale(0.8);
+    padding-top: 0;
+  }
+  .el-date-editor--daterange {
+    // .el-range__icon {
+    //   display: none;
+    // }
+    .el-range-input {
+      width: 75px;
+    }
+    &.el-input__wrapper {
+      padding: 0 4px;
+    }
+    .el-range-separator {
+      padding: 0 2px;
+    }
+  }
+}
+
+.dp-tabs {
+  .el-tabs__header {
+    margin-bottom: 0;
+    background-color: #fff;
+    .el-tabs__nav {
+      padding-left: 16px;
+    }
+
+    .el-tabs__nav-wrap {
+      &::after {
+        height: 1px;
+      }
+    }
+  }
+  &.not-content {
+    .el-tabs__content {
+      height: 0 !important;
+    }
+  }
+}
+
+// 对form元素做统一长度处理
+.dp-form {
+  .el-input,
+  .el-select {
+    &:not(.long-input) {
+      width: 180px !important;
+    }
+  }
+}

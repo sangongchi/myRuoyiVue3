@@ -3,16 +3,17 @@ import { useDark, useToggle } from '@vueuse/core'
 import { useDynamicTitle } from '@/utils/dynamicTitle'
 
 const isDark = useDark()
+console.log('isDark', isDark.value)
 const toggleDark = useToggle(isDark)
 
-const { sideTheme, showSettings, topNav, tagsView, fixedHeader, sidebarLogo, dynamicTitle } = defaultSettings
+const { theme, sideTheme, showSettings, topNav, tagsView, fixedHeader, sidebarLogo, dynamicTitle } = defaultSettings
 
 const storageSetting = JSON.parse(localStorage.getItem('layout-setting')) || ''
 
 const useSettingsStore = defineStore('settings', {
   state: () => ({
     title: '',
-    theme: storageSetting.theme || '#409EFF',
+    theme: storageSetting.theme || theme,
     sideTheme: storageSetting.sideTheme || sideTheme,
     showSettings: showSettings,
     topNav: storageSetting.topNav === undefined ? topNav : storageSetting.topNav,
@@ -37,6 +38,7 @@ const useSettingsStore = defineStore('settings', {
     },
     // 切换暗黑模式
     toggleTheme() {
+      console.log('change theme')
       this.isDark = !this.isDark
       toggleDark()
     }
